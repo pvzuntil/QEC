@@ -23,12 +23,6 @@ class Template
 		} else {
 			$data['site_name'] = $this->_ci->config->item('site_name');
 		}
-		$query = $this->_ci->cbt_konfigurasi_model->get_by_kolom_limit('konfigurasi_kode', 'cbt_keterangan', 1);
-		if ($query->num_rows() > 0) {
-			$data['site_ket'] = $query->row()->konfigurasi_isi;
-		} else {
-			$data['site_ket'] = 'CBT';
-		}
 		$data['site_version'] = $this->_ci->config->item('site_version');
 		$data['nama'] = $this->_ci->access->get_nama();
 		$data['sidemenu'] = $this->_ci->users_model->get_menu($data['kode_menu'], $this->_ci->access->get_level());
@@ -62,12 +56,6 @@ class Template
 			$data['site_name'] = $query->row()->konfigurasi_isi;
 		} else {
 			$data['site_name'] = $this->_ci->config->item('site_name');
-		}
-		$query = $this->_ci->cbt_konfigurasi_model->get_by_kolom_limit('konfigurasi_kode', 'cbt_keterangan', 1);
-		if ($query->num_rows() > 0) {
-			$data['site_ket'] = $query->row()->konfigurasi_isi;
-		} else {
-			$data['site_ket'] = 'CBT';
 		}
 		$data['site_version'] = $this->_ci->config->item('site_version');
 		$data['content'] = $this->_ci->load->view($template, $data, true);
