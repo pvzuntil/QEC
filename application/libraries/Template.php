@@ -57,6 +57,12 @@ class Template
 		} else {
 			$data['site_name'] = $this->_ci->config->item('site_name');
 		}
+		$query = $this->_ci->cbt_konfigurasi_model->get_by_kolom_limit('konfigurasi_kode', 'cbt_keterangan', 1);
+		if ($query->num_rows() > 0) {
+			$data['site_ket'] = $query->row()->konfigurasi_isi;
+		} else {
+			$data['site_ket'] = 'QEC';
+		}
 		$data['site_version'] = $this->_ci->config->item('site_version');
 		$data['content'] = $this->_ci->load->view($template, $data, true);
 		$data['title'] = $title;
