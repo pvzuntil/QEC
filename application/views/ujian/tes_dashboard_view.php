@@ -551,10 +551,10 @@
                 let textNama = data.nama;
                 splitedNama = textNama.split(' ')
 
-                if (splitedNama.length > 3) {
+                if (splitedNama.length > 4) {
                     textNama = ''
                     splitedNama.forEach((el, i) => {
-                        if (i > 2) {
+                        if (i > 3) {
                             let abjadWordAkhir = el.charAt(0)
                             textNama += abjadWordAkhir + '. '
                         } else {
