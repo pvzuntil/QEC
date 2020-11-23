@@ -551,6 +551,10 @@
                 let textNama = data.nama;
                 splitedNama = textNama.split(' ')
 
+                doc.setFontStyle('normal');
+                doc.setFont('vibes');
+                doc.setFontSize(55)
+
                 if (splitedNama.length > 4) {
                     textNama = ''
                     splitedNama.forEach((el, i) => {
@@ -563,9 +567,12 @@
                     })
                 }
 
+                var widthTextNama = doc.getTextWidth(textNama);
+                console.log(widthTextNama);
+
                 textNama = toTitleCase(textNama)
                 let textSekolah = data.sekolah;
-                
+
                 doc.setFontStyle('normal');
                 doc.setFont('vibes');
                 doc.setFontSize(55)
